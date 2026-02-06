@@ -39,8 +39,9 @@ pip install -r requirements.txt
 ```
 
 ## Usage
+see ```example.ipynb``` for executable code example.
 
-### Load Datasets
+### Load and Access Specific Datasets
 
 ```python
 from data_loader import load
@@ -50,6 +51,9 @@ datasets = load()
 
 # Load specific datasets
 datasets = load(["Iris", "Wine", "Breast Cancer"])
+
+# Access specific dataset details
+X_train, X_test, y_train, y_test = datasets["Iris"]
 ```
 
 ### Benchmark Your Model
@@ -67,24 +71,6 @@ scores = test_on_infinity_benchmark(model, ["Iris", "Wine"])
 
 # Get just the scores without verbose output
 scores = test_on_infinity_benchmark(model, verbose=False)
-```
-
-### Accessing specific datastes
-
-```python
-from data_loader import load_classification_datasets
-
-# Load all 20 datasets
-datasets = load_classification_datasets([
-    "Iris", "Wine", "Breast Cancer", "Digits",
-    "Balance Scale", "Blood Transfusion", "Haberman", "Seeds",
-    "Teaching Assistant", "Zoo", "Planning Relax", "Ionosphere",
-    "Sonar", "Glass", "Vehicle", "Liver Disorders",
-    "Heart Statlog", "Pima Indians Diabetes", "Australian", "Monks-1"
-], logging=True)
-
-# Access a specific dataset
-X_train, X_test, y_train, y_test = datasets["Iris"]
 ```
 
 ### Manual Per Dataset Benchmarking 
